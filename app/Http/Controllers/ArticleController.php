@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('articles.index');
+        //
     }
 
     /**
@@ -88,5 +88,13 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public function printpdf()
+    {
+        // $articles = Article::all();
+        // $pdf = PDF::loadview('articles.artiles_pdf' , ['articles'=>$articles]);
+        // return $pdf->stream();
+        return view('articles.create');
     }
 }
