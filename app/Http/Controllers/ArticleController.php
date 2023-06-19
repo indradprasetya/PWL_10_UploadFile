@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use PDF;
+use PDF as PDF;
 
 class ArticleController extends Controller
 {
@@ -90,11 +90,13 @@ class ArticleController extends Controller
         //
     }
 
-    public function printpdf()
+    /**
+     * Generate PDF
+     */
+    public function cetak_pdf()
     {
-        // $articles = Article::all();
-        // $pdf = PDF::loadview('articles.artiles_pdf' , ['articles'=>$articles]);
-        // return $pdf->stream();
-        return view('articles.create');
+        $articles = Article::all();
+        $pdf = 'PDF'::loadview('articles.articles_pdf', ['articles' => $articles]);
+        return $pdf->stream();
     }
 }
